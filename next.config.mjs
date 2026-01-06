@@ -1,28 +1,18 @@
-import { withSentryConfig } from '@sentry/nextjs';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // 1. Static export enable karein
+    // 1. Static export enable karein taake HTML files ban saken
     output: 'export',
 
-    // 2. Images optimization ko disable karein (GitHub Pages support nahi karta)
+    // 2. GitHub Pages images optimize nahi kar sakta, isliye ise true rakhein
     images: {
         unoptimized: true,
     },
 
-    // 3. Apni repository ka naam yahan likhein (Slash ke sath)
-    // Aapki repo ka naam 'portfolio' hai to:
+    // 3. Aapki repository ka naam 'portfolio' hai, isliye ye zaroori hai
     basePath: '/portfolio',
+
+    // Optional: Agar aap assets (CSS/JS) ke liye bhi path set karna chahte hain
+    assetPrefix: '/portfolio',
 };
 
-export default withSentryConfig(nextConfig, {
-    silent: true,
-    org: "javascript-mastery",
-    project: "javascript-nextjs",
-}, {
-    widenClientFileUpload: true,
-    transpileClientSDK: true,
-    hideSourceMaps: true,
-    disableLogger: true,
-    automaticVercelMonitors: true,
-});
+export default nextConfig;
