@@ -5,7 +5,6 @@ const nextConfig = {
         unoptimized: true,
     },
     basePath: '/portfolio',
-    assetPrefix: '/portfolio',
     // Ye do lines add karein taake errors build na rokain
     eslint: {
         ignoreDuringBuilds: true,
